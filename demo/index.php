@@ -49,8 +49,10 @@
 <script>
     WN.options = {
         loadPrices: true, //load prices
+        <?php if(SANDBOX_MODE) : ?>
         readArticleUrl: '<?php echo PAGE_URL ?>/sandbox/confirm.php', //only for sandbox, remove this on production mode
         loadPricesUrl: '<?php echo PAGE_URL ?>/sandbox/prices.php' //only for sandbox, remove this on production mode
+        <?php endif; ?>
     };
 </script>
 </body>

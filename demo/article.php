@@ -24,7 +24,7 @@ $purchaseUrl = sprintf('<p><a href="#" data-wn-url="%s" class="wn-item">Read wit
 $listUrl = '<p><a href="index.php">&laquo; back to articles list</a></p>';
 
 //Inicjowanie usługi Webnalist w trybie sandbox i debug
-$webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, true, true);
+$webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, SANDBOX_MODE, SANDBOX_MODE);
 $webnalist->setUrl(PAGE_URL); //only for sandbox, skip this on production mode
 $isPurchased = false;
 $error = null;
@@ -77,9 +77,11 @@ echo $view;
 </script>
 <script>
     WN.options = {
-        loadPrices: true, //load prices
+        loadPrices: false,
+        <?php if(SANDBOX_MODE) : ?>
         readArticleUrl: '<?php echo PAGE_URL ?>/sandbox/confirm.php', //only for sandbox, remove this on production mode
         loadPricesUrl: '<?php echo PAGE_URL ?>/sandbox/prices.php' //only for sandbox, remove this on production mode
+        <?php endif; ?>
     };
 </script>
 </body>
