@@ -7,7 +7,7 @@ $url = urldecode($_GET['url']);
 $query = parse_url($url, PHP_URL_QUERY);
 $anchor = '';
 if (($pos = strpos($url, "#")) !== FALSE) {
-    $anchor = substr($url, $pos+1);
+    $anchor = substr($url, $pos);
     $url = substr($url, 0, $pos);
 }
 $queryPrefix = ($query) ? '&' : '?';
