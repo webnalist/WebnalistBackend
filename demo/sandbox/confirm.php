@@ -24,7 +24,7 @@ if (isset($_GET['clicked'])) {
         $token = 'validToken';
     }
 }
-$responseUrl = sprintf('%s%swn_purchase_id=0&wn_token=%s', $url, $queryPrefix, 0, $token);
+$responseUrl = sprintf('%s%swn_purchase_id=%s&wn_token=%s', $url, $queryPrefix, 1, $token);
 if ($isPurchased || $clicked) {
     $response = '<h1>Dostęp przyznany, otwieranie strony z artykułem...</h1>';
     $response .= '<a href="' . $url . '">Przejź jeśli artykuł nie został wczytany &raquo;</a>';
