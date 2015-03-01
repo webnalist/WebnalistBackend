@@ -10,7 +10,7 @@ if (!$response->token || !$response->purchaseId) {
     $response->title = 'Missing params';
     $response->message = 'Missing url parameters (wn_token, wn_purchase_id)';
     $response->isAllowed = false;
-} elseif ($response->token == 'thisIsAValidToken') {
+} elseif ($response->token == 'validToken') {
     $response->token = 'validToken';
     $response->code = 'api.response.voter.allowed';
     $response->title = 'Access allowed';
