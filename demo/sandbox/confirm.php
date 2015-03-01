@@ -8,7 +8,7 @@ $query = parse_url($url, PHP_URL_QUERY);
 $anchor = '';
 if (($pos = strpos($url, "#")) !== FALSE) {
     $anchor = substr($url, $pos+1);
-    $url = substr($url, -$pos);
+    $url = substr($url, 0, $pos);
 }
 $queryPrefix = ($query) ? '&' : '?';
 $currentUrl = full_url($_SERVER);
