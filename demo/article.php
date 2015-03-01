@@ -1,6 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Webnalist Merchant Demo Store</title>
+</head>
+<body>
+
 <?php
-//include config
-include_once('inc/header.php');
+define('PAGE_URL', 'http://demo.webnalist.com'); //your demo page host, skip / on the end
+define('WN_KEY_PUBLIC', 'xxx'); //your webnalist brand public key
+define('WN_KEY_PRIVATE', 'xxx'); //your webnalist brand private key
+
+/**
+ * You can test without adding articles to Webnalist database.
+ * If you add at the end of the article url #purchased and call in sandbox mode,
+ * we send to your service purchased response in other case you receive unpaid response.
+ *
+ * In production mode hash on the end of url is ignored.
+ */
+define('SANDBOX_MODE', true);
+
+include_once('../../WebnalistBackend.php');
 
 //demo data
 $articleId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
@@ -13,7 +33,6 @@ $fullText = '<hr><p><strong>Full text of article #' . $articleId . '</strong> se
 $purchasedInfo = '<p><strong>Artykuł kupiony przez <a href="https://webnalist.com" target="_blank">Webnalist.com</a></strong></p>';
 $purchaseUrl = sprintf('<p><a href="#" data-wn-url="%s" class="wn-read">Przeczytaj całość z Webnalist.com</a></p>',
     urlencode($currentArticleUrl));
-
 
 //Inicjowanie usługi Webnalist w trybie sandbox i debug
 $webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, true, true);
@@ -46,5 +65,31 @@ if ($isPurchased && !$error) {
 //show article
 echo $view;
 
-//include WebnalistFrontend library
-include_once('inc/footer.php');
+?>
+
+<script>
+    (function (d, s, wn) {
+        window['WN'] = wn;
+        wn.readyFn = wn.readyFn || [];
+        wn.ready = function (fn) {
+            wn.readyFn.push(fn);
+        };
+        var wns = d.createElement(s);
+        wns.async = true;
+        wns.src = 'js/webnalist.min.js'; //Make sure the path is correct.
+        wns.onload = function () {
+            wn.executeReady && wn.executeReady();
+        };
+        var tag = document.getElementsByTagName("script")[0];
+        tag.parentNode.insertBefore(wns, tag);
+    })(document, 'script', window['WN'] || {});
+</script>
+<script>
+    WN.options = {
+        loadPrices: true, //load prices
+        readArticleUrl: <?php echo PAGE_URL ?>'/sandbox/confirm.php', //only for sandbox, remove this on production mode
+        loadPricesUrl: <?php echo PAGE_URL ?>'/sandbox/prices.php' //only for sandbox, remove this on production mode
+    };
+</script>
+</body>
+</html>
