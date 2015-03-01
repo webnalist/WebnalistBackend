@@ -8,7 +8,7 @@
 
 <?php
 include_once('conf.php');
-include_once('../../WebnalistBackend.php');
+include_once('../WebnalistBackend.php');
 
 //demo data
 $articleId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
