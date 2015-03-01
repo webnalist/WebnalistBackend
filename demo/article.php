@@ -58,7 +58,7 @@ if ($isPurchased && !$error) {
 echo $view;
 
 ?>
-<script src="path/to/webnalist.min.js"></script>
+<script src="js/webnalist.min.js"></script>
 <?php if (SANDBOX_MODE) : ?>
     <script>
         WN.options = {
