@@ -9,24 +9,24 @@
 
 <h1>Webnalist Merchant Demo Store</h1>
 <ul>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article1.php#purchased">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1#purchased">
         <a href="#">
             Purchased Article #1 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
     </li>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article2.php">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article2php?id=1">
         <a href="#">
             New Article #3 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
     </li>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article3.php">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">
         <a href="#">
             New Article #3 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
     </li>
 </ul>
 
-<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article1.php?id=1#purchased">Or simple try read
+<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1#purchased">Or simple try read
     article #1 &raquo;</a>
 
 <script>
