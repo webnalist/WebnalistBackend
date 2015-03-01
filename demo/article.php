@@ -59,14 +59,15 @@ echo $view;
 
 ?>
 <script src="js/webnalist.min.js"></script>
-<?php if (SANDBOX_MODE) : ?>
-    <script>
-        WN.options = {
-            sandbox: {
-                url: '<?php echo PAGE_URL ?>'
-            }
+<script>
+    var WN = WN || {};
+    <?php if (SANDBOX_MODE) : ?>
+    WN.options = {
+        sandbox: {
+            url: '<?php echo PAGE_URL ?>'
         }
-    </script>
-<?php endif; ?>
+    }
+    <?php endif; ?>
+</script>
 </body>
 </html>

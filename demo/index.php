@@ -33,6 +33,7 @@
 
 <script src="js/webnalist.min.js"></script>
 <script>
+    var WN = WN || {};
     WN.options = {
         loadPrices: true,
         <?php if (SANDBOX_MODE) : ?>
