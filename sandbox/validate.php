@@ -16,6 +16,7 @@ if (!$response->token || !$response->purchaseId) {
     $response->message = 'Access allowed, token has been removed.';
     $response->isAllowed = true;
 } else {
+    $response->token = 'invalidToken';
     $response->code = 'api.response.voter.token.invalid';
     $response->title = 'Token invalid';
     $response->message = 'Requested token is invalid or out of date. Ask user to click again on .wn-item.';

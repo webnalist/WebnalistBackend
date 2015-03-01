@@ -1,6 +1,6 @@
 <?php
 
-$urls = $_POST['urls'];
+$urls = isset($_POST['urls']) ? $_POST['urls'] : null;
 
 if (!is_array($urls)) {
     throw new Exception('Expecting urls array in post request.');
