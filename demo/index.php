@@ -30,8 +30,6 @@
 <a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Simple link to Article
     #1 &raquo;</a>
 
-
-<script src="js/webnalist.min.js"></script>
 <script>
     var WN = WN || {};
     WN.options = {
@@ -43,5 +41,7 @@
         <?php endif; ?>
     }
 </script>
+<script src="js/webnalist.min.js"></script>
+
 </body>
 </html>

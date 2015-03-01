@@ -58,7 +58,6 @@ if ($isPurchased && !$error) {
 echo $view;
 
 ?>
-<script src="js/webnalist.min.js"></script>
 <script>
     var WN = WN || {};
     <?php if (SANDBOX_MODE) : ?>
@@ -69,5 +68,7 @@ echo $view;
     }
     <?php endif; ?>
 </script>
+<script src="js/webnalist.min.js"></script>
+
 </body>
 </html>
