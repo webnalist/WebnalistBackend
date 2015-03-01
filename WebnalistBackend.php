@@ -13,8 +13,6 @@
 class WebnalistBackend
 {
     const SERVICE_URL = 'https://webnalist.com';
-    const SANDBOX_URL = 'https://sandbox.webnalist.com';
-    const READ_PATH = '/api/merchant/article/voter.json';
     const PARAM_PREFIX = 'wn_';
 
     private $purchaseId;
@@ -24,6 +22,7 @@ class WebnalistBackend
     private $publicKey;
     private $secretKey;
     private $url;
+    private $purchasePath;
 
     /**
      * @param string $wnPublicKey Public merchant key
@@ -42,6 +41,13 @@ class WebnalistBackend
             (int)$_GET[self::PARAM_PREFIX . 'purchase_id'] : null;
         $this->token = isset($_REQUEST[self::PARAM_PREFIX . 'token']) ?
             $_GET[self::PARAM_PREFIX . 'token'] : null;
+
+        if ($sandbox) {
+            $this->purchasePath = '/api/merchant/article/voter.json';
+        } else {
+            $this->purchasePath = '/sandbox/validate.php';
+        }
+
     }
 
     /**
@@ -64,10 +70,6 @@ class WebnalistBackend
     {
         if ($url) {
             return $url;
-        }
-
-        if ($this->sandbox) {
-            return self::SANDBOX_URL;
         }
 
         return self::SERVICE_URL;
@@ -136,7 +138,7 @@ class WebnalistBackend
             self::PARAM_PREFIX . 'purchase_id' => $this->purchaseId,
             self::PARAM_PREFIX . 'token' => $this->token
         );
-        $response = $this->exec($this->getUrl() . self::READ_PATH, $params);
+        $response = $this->exec($this->getUrl() . $this->purchasePath, $params);
         if ($response) {
             $response = json_decode($response);
             $response = $response->is_allowed;
@@ -167,7 +169,6 @@ class WebnalistBackend
     }
 
 }
-
 
 /**
  * Class WebnalistException
