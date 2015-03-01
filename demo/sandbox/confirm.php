@@ -13,6 +13,7 @@ if ($isPurchased) {
     $response = '<h1>Dostęp przyznany, otwieranie strony z artykułem...</h1>';
     $response .= '<a href="' . $url . '">Przejź jeśli artykuł nie został wczytany &raquo;</a>';
     $response .= '<script> window.opener.location = "' . $articleUrlYes . '"; window.close();</script>';
+    echo $response;
     exit;
 }
 ?>
