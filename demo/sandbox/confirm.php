@@ -17,19 +17,12 @@ if ($isPurchased) {
     exit;
 }
 ?>
-    <h1>WebnalistPopup Sandbox</h1>
-    <h2>Do you want to read article?</h2>
-    <form>
-        <center>
-            <a href="<?php echo $articleUrlYes; ?>">
-                <button>Yes</button>
-            </a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="<?php echo $articleUrlNo; ?>">
-                <button>No</button>
-            </a>
-            &nbsp; &nbsp; &nbsp; &nbsp;
-            <a href="<?php echo $articleUrlInvalid; ?>">
-                <button>Invalid</button>
-            </a>
-    </form>
+<h1>WebnalistPopup Sandbox</h1>
+<h2>Do you want to read article?</h2>
+<center>
+    <a href="<?php echo $articleUrlYes; ?>">Yes</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="<?php echo $articleUrlNo; ?>">No</a>
+    &nbsp; &nbsp; &nbsp; &nbsp;
+    <a href="<?php echo $articleUrlInvalid; ?>">Invalid</a>
+</center>
