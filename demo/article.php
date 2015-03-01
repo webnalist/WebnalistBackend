@@ -19,8 +19,9 @@ $lead = '<p>Lead for article #' . $articleId . ' Eu leo sem velit, odio nam ipsu
 $fullText = '<hr><p><strong>Full text of article #' . $articleId . '</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
 <h2>Header Level 2</h2><ol><li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li><li>Aliquam tincidunt mauris eu risus.</li></ol>';
 $purchasedInfo = '<p><strong>Artykuł kupiony przez <a href="https://webnalist.com" target="_blank">Webnalist.com</a></strong></p>';
-$purchaseUrl = sprintf('<p><a href="#" data-wn-url="%s" class="wn-item">Przeczytaj całość z Webnalist.com</a></p>',
+$purchaseUrl = sprintf('<p><a href="#" data-wn-url="%s" class="wn-item">Read with Webnalist.com</a></p>',
     urlencode($currentArticleUrl));
+$listUrl = '<p><a href="index.php">&laquo; >back to index</a></p>';
 
 //Inicjowanie usługi Webnalist w trybie sandbox i debug
 $webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, true, true);
@@ -40,6 +41,7 @@ if ($isPurchased && !$error) {
     $view .= $purchasedInfo;
     $view .= $lead;
     $view .= $fullText;
+    $view .= $listUrl;
 //is not purchased, return lead, purchase link and error if occurred
 } else {
     $view = $title;
@@ -48,6 +50,7 @@ if ($isPurchased && !$error) {
     if ($error) {
         $view .= sprintf('<p class="error">%s</p>', $error);
     }
+    $view .= $listUrl;
 }
 
 //show article
