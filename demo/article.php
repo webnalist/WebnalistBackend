@@ -25,7 +25,9 @@ $listUrl = '<p><a href="index.php">&laquo; back to articles list</a></p>';
 
 //Inicjowanie usługi Webnalist w trybie sandbox i debug
 $webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, SANDBOX_MODE, SANDBOX_MODE);
-$webnalist->setUrl(PAGE_URL); //only for sandbox, skip this on production mode
+if (SANDBOX_MODE) {
+    $webnalist->setUrl(PAGE_URL); //only for sandbox, skip this on production mode
+}
 $isPurchased = false;
 $error = null;
 try {
