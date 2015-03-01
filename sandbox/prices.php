@@ -8,7 +8,7 @@ if (!is_array($urls)) {
 
 $response = array();
 foreach ($urls as $url) {
-    $array[$url] = rand(1, 100);
+    $response[$url] = rand(1, 100);
 }
 
-echo json_encode($array);
+echo json_encode($response);
