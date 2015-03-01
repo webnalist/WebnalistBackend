@@ -1,5 +1,5 @@
 <?php
-
+/** WEBNALIST PRICES LIST MOCKUP */
 $urls = isset($_POST['url']) ? $_POST['url'] : null;
 
 if (!is_array($urls)) {

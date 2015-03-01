@@ -1,4 +1,5 @@
 <?php
+/** WEBNALIST VALIDATOR MOCKUP */
 $response = new stdClass();
 $response->articleId = $url;
 $response->token = isset($_GET['wn_token']) ? $_GET['wn_token'] : null;
