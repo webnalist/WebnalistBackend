@@ -27,8 +27,7 @@
     </li>
 </ul>
 
-<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Or simple try read
-    article #1 &raquo;</a>
+<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Simple link to Article #1 &raquo;</a>
 
 
 <script src="js/webnalist.min.js"></script>
