@@ -27,19 +27,20 @@
     </li>
 </ul>
 
-<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Simple link to Article #1 &raquo;</a>
+<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Simple link to Article
+    #1 &raquo;</a>
 
 
 <script src="js/webnalist.min.js"></script>
-<?php if (SANDBOX_MODE) : ?>
-    <script>
-        WN.options = {
-            loadPrices: true,
-            sandbox: {
-                url: '<?php echo PAGE_URL ?>'
-            }
+<script>
+    WN.options = {
+        loadPrices: true,
+        <?php if (SANDBOX_MODE) : ?>
+        sandbox: {
+            url: '<?php echo PAGE_URL ?>'
         }
-    </script>
-<?php endif; ?>
+        <?php endif; ?>
+    }
+</script>
 </body>
 </html>
