@@ -24,6 +24,5 @@ if (!$response->token || !$response->purchaseId) {
     $response->isAllowed = false;
 }
 
-$response = array('is_allowed' => $response);
 echo json_encode($response);
 exit;
