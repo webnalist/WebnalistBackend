@@ -9,6 +9,8 @@ Php library to fast integration WebnalistPayment on the merchant store.
 ------
 You can run demo with selfhosted sandbox mode.
 
+```bash
 git clone https://github.com/webnalist/WebnalistBackend.git
 cd WebnalistBackend
 git submodule update --init --recursive
+```
