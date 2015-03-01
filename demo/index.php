@@ -1,3 +1,4 @@
+<?php include_once('conf.php'); ?>
 <!DOCTYPE html>
 <html>
 <head lang="en">
