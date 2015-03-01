@@ -2,10 +2,10 @@
 if (!isset($_GET['url']) || empty($_GET['url'])) {
     throw new Exception('Url is not defined.');
 }
+$url = urldecode($_GET['url']);
 $query = parse_url($url, PHP_URL_QUERY);
 $queryPrefix = ($query) ? '&' : '?';
 $currentUrl = full_url($_SERVER);
-
 if (isset($_GET['clicked'])) {
     $isPurchased = (boolean)$_GET['clicked'];
     switch ($_GET['clicked']) {
@@ -23,9 +23,7 @@ if (isset($_GET['clicked'])) {
         $token = 'validToken';
     }
 }
-
 $responseUrl = sprintf('%s%swn_purchase_id=0&wn_token=%s', $url, $queryPrefix, 0, $token);
-
 if ($isPurchased || $clicked) {
     $response = '<h1>Dostęp przyznany, otwieranie strony z artykułem...</h1>';
     $response .= '<a href="' . $url . '">Przejź jeśli artykuł nie został wczytany &raquo;</a>';
@@ -45,7 +43,6 @@ if ($isPurchased || $clicked) {
     </center>
 
 <?php
-
 function url_origin($s, $use_forwarded_host = false)
 {
     $ssl = (!empty($s['HTTPS']) && $s['HTTPS'] == 'on') ? true : false;
