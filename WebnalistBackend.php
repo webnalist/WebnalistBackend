@@ -42,7 +42,7 @@ class WebnalistBackend
         $this->token = isset($_REQUEST[self::PARAM_PREFIX . 'token']) ?
             $_GET[self::PARAM_PREFIX . 'token'] : null;
 
-        if ($sandbox) {
+        if (!$sandbox) {
             $this->purchasePath = '/api/merchant/article/voter.json';
         } else {
             $this->purchasePath = '/sandbox/validate.php';
@@ -69,10 +69,8 @@ class WebnalistBackend
     public function setUrl($url = null)
     {
         if ($url) {
-            return $url;
+            $this->url = $url;
         }
-
-        return self::SERVICE_URL;
     }
 
     /**
