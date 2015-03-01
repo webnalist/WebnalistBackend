@@ -21,7 +21,7 @@ $fullText = '<hr><p><strong>Full text of article #' . $articleId . '</strong> se
 $purchasedInfo = '<p><strong>Artykuł kupiony przez <a href="https://webnalist.com" target="_blank">Webnalist.com</a></strong></p>';
 $purchaseUrl = sprintf('<p><a href="#" data-wn-url="%s" class="wn-item">Read with Webnalist.com</a></p>',
     urlencode($currentArticleUrl));
-$listUrl = '<p><a href="index.php">&laquo; >back to index</a></p>';
+$listUrl = '<p><a href="index.php">&laquo; back to articles list</a></p>';
 
 //Inicjowanie usługi Webnalist w trybie sandbox i debug
 $webnalist = new WebnalistBackend(WN_KEY_PUBLIC, WN_KEY_PRIVATE, true, true);
