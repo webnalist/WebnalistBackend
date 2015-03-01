@@ -37,7 +37,7 @@
         };
         var wns = d.createElement(s);
         wns.async = true;
-        wns.src = '../webnalist.min.js'; //Make sure the path is correct.
+        wns.src = 'js/webnalist.min.js'; //Make sure the path is correct.
         wns.onload = function () {
             wn.executeReady && wn.executeReady();
         };
