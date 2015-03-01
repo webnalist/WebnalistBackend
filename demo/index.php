@@ -9,7 +9,7 @@
 
 <h1>Webnalist Merchant Demo Store</h1>
 <ul>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1#purchased">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1<?php if(SANDBOX_MODE):?>#purchased<?php endif; ?>">
         <a href="#">
             Purchased Article #1 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
@@ -26,7 +26,7 @@
     </li>
 </ul>
 
-<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1#purchased">Or simple try read
+<a href="#" class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">Or simple try read
     article #1 &raquo;</a>
 
 <script>
