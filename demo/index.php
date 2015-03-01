@@ -14,12 +14,12 @@
             Purchased Article #1 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
     </li>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article2php?id=1">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article2php?id=2">
         <a href="#">
-            New Article #3 Title <em>Price: <span class="wn-price">...</span> zł</em>
+            New Article #2 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
     </li>
-    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=1">
+    <li class="wn-item" data-wn-url="http://demo.webnalist.com/article.php?id=3">
         <a href="#">
             New Article #3 Title <em>Price: <span class="wn-price">...</span> zł</em>
         </a>
