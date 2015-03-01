@@ -1,8 +1,8 @@
 <?php
 
-define('PAGE_URL', 'http://demo.webnalist.com'); //your demo page host, skip / on the end
-define('WN_KEY_PUBLIC', 'xxx'); //your webnalist brand public key
-define('WN_KEY_PRIVATE', 'xxx'); //your webnalist brand private key
+define('PAGE_URL', ''); //your demo page host, skip / on the end
+define('WN_KEY_PUBLIC', ''); //your webnalist brand public key
+define('WN_KEY_PRIVATE', ''); //your webnalist brand private key
 
 /**
  * You can test without adding articles to Webnalist database.
