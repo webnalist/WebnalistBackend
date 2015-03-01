@@ -13,7 +13,7 @@ include_once('../WebnalistBackend.php');
 //demo data
 $articleId = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $receivePurchasedResponse = ($articleId == 1) ? true : false; //first article in sandbox mode is purchased
-$currentArticleUrl = PAGE_URL . '/article.php?id=' . $articleId . '#purchased';
+$currentArticleUrl = PAGE_URL . '/article.php?id=' . $articleId;
 $title = '<h1>' . str_repeat($articleId, rand(10, 20)) . '</h1>';
 $lead = '<p>Lead for article #' . $articleId . ' Eu leo sem velit, odio nam ipsum, molestie commodo mauris quis iaculis nisl integer . Feugiat egestas orci auctor, viverra nec orci nullam, rutrum bibendum cursus vulputate viverra aliquam dignissim sodales . Convallis nam ligula molestie nam lacinia neque augue cras massa porta porttitor; Scelerisque erat dui aliquam bibendum . Aliquam curabitur quam eu etiam egestas quam pellentesque venenatis tincidunt augue pellentesque feugiat est curabitur augue cras augue .</p>';
 $fullText = '<hr><p><strong>Full text of article #' . $articleId . '</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
