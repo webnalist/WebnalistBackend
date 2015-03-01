@@ -1,5 +1,5 @@
 <?php
-if (isset($_GET['url']) || empty($_GET['url'])) {
+if (!isset($_GET['url']) || empty($_GET['url'])) {
     throw new Exception('Url is not defined.');
 }
 $query = parse_url($url, PHP_URL_QUERY);
