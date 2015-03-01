@@ -139,8 +139,7 @@ class WebnalistBackend
         $response = $this->exec($this->getUrl() . $this->purchasePath, $params);
         if ($response) {
             $response = json_decode($response);
-            $response = $response->is_allowed;
-            if ($response->is_allowed) {
+            if ($response->isAllowed) {
                 return true;
             } else {
                 throw new WebnalistException($response->message);
