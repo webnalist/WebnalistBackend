@@ -35,7 +35,7 @@ class WebnalistBackend
         $this->publicKey = $wnPublicKey;
         $this->secretKey = $wnSecretKey;
         $this->sandbox = $sandbox;
-        $this->url = $this->setUrl();
+        $this->url = $this->setUrl(self::SERVICE_URL);
         $this->debug = $debug;
         $this->purchaseId = isset($_REQUEST[self::PARAM_PREFIX . 'purchase_id']) ?
             (int)$_GET[self::PARAM_PREFIX . 'purchase_id'] : null;
