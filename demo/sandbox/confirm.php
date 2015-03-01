@@ -5,6 +5,11 @@ if (!isset($_GET['url']) || empty($_GET['url'])) {
 }
 $url = urldecode($_GET['url']);
 $query = parse_url($url, PHP_URL_QUERY);
+$anchor = '';
+if (($pos = strpos($url, "#")) !== FALSE) {
+    $anchor = substr($url, $pos+1);
+    $url = substr($url, -$pos);
+}
 $queryPrefix = ($query) ? '&' : '?';
 $currentUrl = full_url($_SERVER);
 if (isset($_GET['clicked'])) {
@@ -24,7 +29,7 @@ if (isset($_GET['clicked'])) {
         $token = 'validToken';
     }
 }
-$responseUrl = sprintf('%s%swn_purchase_id=%s&wn_token=%s', $url, $queryPrefix, 1, $token);
+$responseUrl = sprintf('%s%swn_purchase_id=%s&wn_token=%s%s', $url, $queryPrefix, 1, $token, $anchor);
 if ($isPurchased || $clicked) {
     $response = '<h1>Dostęp przyznany, otwieranie strony z artykułem...</h1>';
     $response .= '<a href="' . $url . '">Przejź jeśli artykuł nie został wczytany &raquo;</a>';
