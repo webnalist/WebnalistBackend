@@ -109,6 +109,9 @@ class WebnalistBackend
                 if ($this->debug) {
                     var_dump('error', $error);
                     var_dump('errorCode', $code);
+                    if ($code == 404) {
+                        var_dump('Page ' . $url . ' is not found.');
+                    }
                 }
                 throw new CurlErrorException(CurlErrorException::codeToMessage($code), $code);
             } else {
@@ -139,7 +142,10 @@ class WebnalistBackend
         $response = $this->exec($this->getUrl() . $this->purchasePath, $params);
         if ($response) {
             $response = json_decode($response);
-            if ($response->isAllowed) {
+            if ($this->debug) {
+                var_dump('response', $response);
+            }
+            if ($response->is_allowed) {
                 return true;
             } else {
                 throw new WebnalistException($response->message);
