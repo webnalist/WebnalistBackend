@@ -9,19 +9,19 @@ if (!$response->token || !$response->purchaseId) {
     $response->code = 'api.response.voter.missing.params';
     $response->title = 'Missing params';
     $response->message = 'Missing url parameters (wn_token, wn_purchase_id)';
-    $response->isAllowed = false;
+    $response->is_allowed = false;
 } elseif ($response->token == 'validToken') {
     $response->token = 'validToken';
     $response->code = 'api.response.voter.allowed';
     $response->title = 'Access allowed';
     $response->message = 'Access allowed, token has been removed.';
-    $response->isAllowed = true;
+    $response->is_allowed = true;
 } else {
     $response->token = 'invalidToken';
     $response->code = 'api.response.voter.token.invalid';
     $response->title = 'Token invalid';
     $response->message = 'Requested token is invalid or out of date. Ask user to click again on .wn-item.';
-    $response->isAllowed = false;
+    $response->is_allowed = false;
 }
 
 echo json_encode($response);
