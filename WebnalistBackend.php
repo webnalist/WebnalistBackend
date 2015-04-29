@@ -106,20 +106,13 @@ class WebnalistBackend
 
         if ($code !== 200) {
             if (!$error || $error = 22) { //http error
-                if ($this->debug) {
-                    var_dump('error', $error);
-                    var_dump('errorCode', $code);
-                    if ($code == 404) {
-                        var_dump('Page ' . $url . ' is not found.');
-                    }
-                }
-                throw new CurlErrorException(CurlErrorException::codeToMessage($code), $code);
+                WebnalistLogger::log('Error: ' . $error);
+                WebnalistLogger::log('Error code: ' . $code);
+                throw new WebnalistCurlErrorException(WebnalistCurlErrorException::codeToMessage($code), $code);
             } else {
-                if ($this->debug) {
-                    var_dump('error', $error);
-                    var_dump('errorCode', $code);
-                }
-                throw new CurlErrorException($error, $code);
+                WebnalistLogger::log('Error: ' . $error);
+                WebnalistLogger::log('Error code: ' . $code);
+                throw new WebnalistCurlErrorException($error, $code);
             }
         }
 
@@ -143,7 +136,7 @@ class WebnalistBackend
         if ($response) {
             $response = json_decode($response);
             if ($this->debug) {
-                var_dump('response', $response);
+                WebnalistLogger::log(print_r($response, true));
             }
             if ($response->is_allowed) {
                 return true;
@@ -183,12 +176,31 @@ class WebnalistException extends Exception
 }
 
 /**
+ * Class WebnalistException
+ *
+ * For better errors processing.
+ */
+class WebnalistLogger
+{
+    private static $log;
+
+    public static function getLogger()
+    {
+        return self::$log;
+    }
+
+    public static function log($message)
+    {
+        self::$log[] = $message;
+    }
+}
+
+/**
  * Class CurlErrorException
  *
  * For better errors processing.
- * @todo better errors processing
  */
-class CurlErrorException extends WebnalistException
+class WebnalistCurlErrorException extends WebnalistException
 {
     static $messages = array(
         '000' => 'Nieznany błąd komunikacji z systemem Webnalist.com',
