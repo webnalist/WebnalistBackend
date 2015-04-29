@@ -105,7 +105,7 @@ class WebnalistBackend
      * @param $url
      * @param array $params
      * @return mixed
-     * @throws CurlErrorException
+     * @throws WebnalistCurlErrorException
      * @throws WebnalistException
      */
     private function exec($url, $params = array())
@@ -149,7 +149,7 @@ class WebnalistBackend
      * Ask remote Webnalist service if purchase id is valid for requested single usage token.
      *
      * @return bool
-     * @throws CurlErrorException
+     * @throws WebnalistCurlErrorException
      * @throws WebnalistException
      */
     private function vote()
