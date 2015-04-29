@@ -35,6 +35,7 @@
  * @copyright Webnalist Sp. z o. o.
  * @package Webnalists
  * @author Mateusz Dołęga <mateusz.dolega@webnalist.com>
+ * @see https://webnalist.com/merchant/docs/index.html See integration docs.
  */
 class WebnalistBackend
 {
