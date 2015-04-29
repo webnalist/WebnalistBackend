@@ -184,14 +184,37 @@ class WebnalistLogger
 {
     private static $log;
 
-    public static function getLogger()
+    /**
+     * Logs array
+     * @return array
+     */
+    public static function getLogs()
     {
         return self::$log;
     }
 
+    /**
+     * Print all logs
+     */
+    public function printLogs()
+    {
+        if (self::$log) {
+            echo '<pre>' . PHP_EOL;
+            foreach (self::$log as $row) {
+                echo $row . PHP_EOL;
+            }
+            echo '</pre>' . PHP_EOL;
+        }
+    }
+
+    /**
+     * Add log message
+     * @param $message
+     */
     public static function log($message)
     {
         self::$log[] = $message;
+        echo $message;
     }
 }
 
@@ -208,6 +231,10 @@ class WebnalistCurlErrorException extends WebnalistException
         '404' => 'Nie znaleziono strony',
     );
 
+    /**
+     * @param $code
+     * @return mixed
+     */
     public static function codeToMessage($code)
     {
         return array_key_exists($code, self::$messages) ? self::$messages[$code] : self::$messages['000'];
