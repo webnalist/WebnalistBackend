@@ -5,7 +5,33 @@
  *
  * This library together with WebnalistFrontend enables the processing of WebnalistPayment using remote account model.
  * User don't need to be logged in Merchant service.
- *
+ * <code>
+ *  <?php
+ *       include_once('WebnalistBackend.php');
+ *       $isPurchased = false;
+ *       $error = false;
+ *       $wnPublicKey = ''; //Merchant public key
+ *       $wnSecretKey = ''; //Merchant private key
+ *       $articleUrl = ''; //Article url (identifier on webnalist.com)
+ *       $webnalist = new WebnalistBackend($wnPublicKey, $wnSecretKey);
+ *       try {
+ *           $isPurchased = $webnalist->canRead($articleUrl);
+ *       } catch (WebnalistException $we) {
+ *           $error = $we->getMessage();
+ *       } catch (Exception $e) {
+ *           $error = 'Error occured.'
+ *       }
+ *       if ($isPurchased && !$error) { //article is purchased, access approved
+ *           $view = 'RENDER FULL ARTICLE';
+ *       } else { //artile is not purchased or access denied
+ *           $view = 'RENDER INTRO WITH READ MORE BUTTON';
+ *           if ($error) {
+ *               $view .= sprintf('<p class="error">%s</p>', $error); // PRINT ERROR
+ *           }
+ *       }
+ *       echo $view; //PRINT VIEW RESPONSE
+ *   ?>
+ * </code>
  * @copyright Webnalist Sp. z o. o.
  * @package Webnalists
  * @author Mateusz Dołęga <mateusz.dolega@webnalist.com>
