@@ -169,16 +169,16 @@ class WebnalistBackend
 /**
  * Class WebnalistException
  *
- * For better errors processing.
+ * Better errors catching.
  */
 class WebnalistException extends Exception
 {
 }
 
 /**
- * Class WebnalistException
+ * Class WebnalistLogger
  *
- * For better errors processing.
+ * Better debugging
  */
 class WebnalistLogger
 {
