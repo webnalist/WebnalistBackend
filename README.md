@@ -29,7 +29,7 @@ if ($isPurchased && !$error) { //article is purchased, access approved
 } else { //artile is not purchased or access denied
   $view = 'RENDER INTRO WITH READ MORE BUTTON';
   if ($error) {
-    $view .= sprintf('%s', $error); // PRINT ERROR
+    $view .= $error;
   }
 }
 
