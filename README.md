@@ -13,11 +13,11 @@ $isPurchased = false;
 $error = false;
 $wnPublicKey = ''; //Merchant public key
 $wnSecretKey = ''; //Merchant private key
-$articleUrl = ''; //Article url (identifier on webnalist.com)
+$currentArticleUrl = ''; //Article url (identifier on webnalist.com)
 $webnalist = new WebnalistBackend($wnPublicKey, $wnSecretKey);
 
 try {
-  $isPurchased = $webnalist->canRead($articleUrl);
+  $isPurchased = $webnalist->canRead($currentArticleUrl);
 } catch (WebnalistException $we) {
   $error = $we->getMessage();
 } catch (Exception $e) {
@@ -33,7 +33,7 @@ if($error){
 if ($isPurchased) { 
   $view .= 'RENDER FULL ARTICLE'; //article is purchased, access approved
 } else { // article is not purchased
-  $view .= '<a href="{url}" class="wn-link">Buy Now</a>'; //render buy now button
+  $view .= '<a href="' . $currentArticleUrl . '" class="wn-link">Buy Now</a>'; //render buy now button
 }
 
 echo $view;
