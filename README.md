@@ -24,13 +24,16 @@ try {
   $error = 'Error occurred.'
 }
 
-if ($isPurchased && !$error) { //article is purchased, access approved
-  $view = 'RENDER FULL ARTICLE';
-} else { //artile is not purchased or access denied
-  $view = 'RENDER INTRO WITH READ MORE BUTTON';
-  if ($error) {
-    $view .= $error;
-  }
+$view = 'RENDER INTRO WITH READ MORE BUTTON';
+
+if($error){
+  $view .= $error; //show error
+}
+
+if ($isPurchased) { 
+  $view .= 'RENDER FULL ARTICLE'; //article is purchased, access approved
+} else { // article is not purchased
+  $view .= '<a href="{url}" class="wn-link">Buy Now</a>'; //render buy now button
 }
 
 echo $view;
