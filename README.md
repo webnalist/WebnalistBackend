@@ -21,7 +21,7 @@ try {
 } catch (WebnalistException $we) {
   $error = $we->getMessage();
 } catch (Exception $e) {
-  $error = 'Error occured.'
+  $error = 'Error occurred.'
 }
 
 if ($isPurchased && !$error) { //article is purchased, access approved
@@ -29,7 +29,7 @@ if ($isPurchased && !$error) { //article is purchased, access approved
 } else { //artile is not purchased or access denied
   $view = 'RENDER INTRO WITH READ MORE BUTTON';
   if ($error) {
-    $view .= sprintf('<p class="error">%s</p>', $error); // PRINT ERROR
+    $view .= sprintf('%s', $error); // PRINT ERROR
   }
 }
 
