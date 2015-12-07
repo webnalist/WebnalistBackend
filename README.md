@@ -24,15 +24,15 @@ try {
   $error = 'Error occurred.'
 }
 
-$view = 'RENDER INTRO WITH READ MORE BUTTON';
+$view = 'RENDER TITLE, LEAD, IMAGE, PRICE';
 
 if($error){
-  $view .= $error; //show error
+  $view .= $error; //RENDER ERROR MESSAGE
 }
 
 if ($isPurchased) { 
-  $view .= 'RENDER FULL ARTICLE'; //article is purchased, access approved
-} else { // article is not purchased
+  $view .= 'RENDER FULL ARTICLE';
+} else {
   $view .= '<a href="' . $currentArticleUrl . '" class="wn-link">Buy Now</a>'; //render buy now button
 }
 
