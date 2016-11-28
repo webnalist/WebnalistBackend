@@ -1,6 +1,9 @@
 # WebnalistBackend
 Php library to fast integration WebnalistPayment on the merchant store.
 
+# Abandoned
+This solution is no longer supported in current API.
+
 ## References
 * Works together with [WebnalistFrontend](https://github.com/webnalist/WebnalistFrontend)
 * Demo page: http://demo.webnalist.com
